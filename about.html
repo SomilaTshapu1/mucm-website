@@ -5,6 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About · Makana United Civic Movement</title>
+    <meta name="description" content="About the Makana United Civic Movement — a non-political, non-racial civic movement working to restore Makhanda through unity, accountability and ethical governance.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="About · Makana United Civic Movement">
+    <meta property="og:description" content="Why MUCM exists, and how we're organised to restore Makhanda.">
+    <meta property="og:image" content="assets/board-formal.jpeg">
+    <meta property="og:site_name" content="Makana United Civic Movement">
+    <meta property="og:locale" content="en_ZA">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About · Makana United Civic Movement">
+    <meta name="twitter:description" content="Why MUCM exists, and how we're organised to restore Makhanda.">
+    <meta name="twitter:image" content="assets/board-formal.jpeg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -31,6 +47,13 @@
                 <a href="governance.html">Governance</a>
                 <a href="constitution.html">Constitution</a>
             </nav>
+
+            <!-- WhatsApp quick contact -->
+            <a href="https://wa.me/27729616361" target="_blank" rel="noopener" class="header-whatsapp" aria-label="Message MUCM on WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+
             <a href="membership.html#involved" class="nav-cta">Join the Movement</a>
             <button class="menu-btn" aria-label="Open menu"><span></span></button>
         </div>
@@ -134,7 +157,7 @@
                     style="max-width:70ch; margin:0 auto; color:var(--soft-black); font-size:1.02rem; text-align:center; font-style:italic;">
                     MUCM is registered as a non-profit organisation under the Non-Profit Organisations Act 71 of 1997
                     (Business Reg No. 2026/173788/08) — non-political, non-racial, and open to every resident of
-                    Makhanda without application or fee.</p>
+                    Makhanda without fee.</p>
             </div>
         </section>
 
@@ -176,6 +199,10 @@
                             aria-label="MUCM on TikTok">
                             <i class="fa-brands fa-tiktok"></i> Follow us on TikTok
                         </a>
+                        <a href="https://wa.me/27729616361" target="_blank" rel="noopener"
+                            aria-label="MUCM on WhatsApp">
+                            <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+                        </a>
                     </div>
                 </div>
                 <div class="footer-col">
@@ -186,6 +213,7 @@
                     <a href="membership.html">Membership</a>
                     <a href="governance.html">Governance</a>
                     <a href="constitution.html">Constitution</a>
+                    <a href="privacy.html">Privacy Policy</a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -196,8 +224,8 @@
     </footer>
 
 </body>
+
 <script>
-    // Mobile menu toggle
     document.addEventListener('DOMContentLoaded', function () {
         var menuBtn = document.querySelector('.menu-btn');
         var navLinks = document.querySelector('nav.links');
@@ -207,7 +235,6 @@
                 menuBtn.classList.toggle('active');
             });
 
-            // Close menu when a link is clicked
             navLinks.querySelectorAll('a').forEach(function (link) {
                 link.addEventListener('click', function () {
                     navLinks.classList.remove('open');
@@ -215,7 +242,6 @@
                 });
             });
 
-            // Close menu when clicking outside
             document.addEventListener('click', function (e) {
                 if (!e.target.closest('header')) {
                     navLinks.classList.remove('open');

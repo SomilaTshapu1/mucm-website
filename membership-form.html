@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Membership Form · Makana United Civic Movement</title>
+  <meta name="description" content="Register your details with the Makana United Civic Movement. Membership is open to every resident of Makhanda — no fee, no political test.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Membership Form · Makana United Civic Movement">
+  <meta property="og:description" content="Add your details to the MUCM register — so we can keep you informed about your ward and the movement.">
+  <meta property="og:image" content="assets/membership-community.jpeg">
+  <meta property="og:site_name" content="Makana United Civic Movement">
+  <meta property="og:locale" content="en_ZA">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Membership Form · Makana United Civic Movement">
+  <meta name="twitter:description" content="Add your details to the MUCM register — so we can keep you informed about your ward and the movement.">
+  <meta name="twitter:image" content="assets/membership-community.jpeg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/favicon1.jpg" sizes="192x192">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+<style>
+/* ---------- MEMBERSHIP FORM SPECIFIC ---------- */
+
+/* Page container */
+.form-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px var(--edge);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-page form {
+  width: 100%;
+}
+
+/* Header with logo */
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 24px;
+  border-bottom: 3px solid var(--black);
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+.form-header img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+}
+
+.form-header-text h1 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--black);
+  margin: 0 0 6px;
+}
+
+.form-header-text p {
+  font-family: var(--font-label);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--grey-mid);
+  margin: 0;
+}
+
+/* Form title bar */
+.form-title {
+  font-family: var(--font-label);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--grey-dark);
+  color: var(--white);
+  text-align: center;
+  padding: 12px 20px;
+  margin-bottom: 32px;
+}
+
+/* Form rows */
+.form-row {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  align-items: stretch;
+  border: 1px solid var(--black);
+  border-bottom: none;
+}
+
+.form-row:last-of-type {
+  border-bottom: 1px solid var(--black);
+}
+
+.form-row label {
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 14px 16px;
+  background: var(--grey-panel);
+  border-right: 1px solid var(--black);
+  display: flex;
+  align-items: center;
+  color: var(--black);
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 14px 18px;
+  border: none;
+  background: var(--white);
+  color: var(--black);
+  width: 100%;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.form-row input:focus,
+.form-row select:focus {
+  background: #fafafa;
+  box-shadow: inset 0 0 0 2px var(--black);
+}
+
+.form-row input[readonly] {
+  background: var(--grey-panel);
+  color: var(--grey-mid);
+  cursor: not-allowed;
+}
+
+/* Consent link */
+.form-row label a {
+  color: var(--black);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.form-row label a:hover {
+  color: var(--grey-mid);
+}
+
+/* Yes/No radio row */
+.form-row .radio-group {
+  display: flex;
+  gap: 32px;
+  padding: 14px 18px;
+  align-items: center;
+}
+
+.form-row .radio-group label {
+  background: none;
+  border: none;
+  padding: 0;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-row .radio-group input[type="radio"] {
+  width: auto;
+  accent-color: var(--black);
+}
+
+/* Signature + date row */
+.form-row.split-half {
+  grid-template-columns: 1.4fr 1fr;
+}
+
+.form-row.split-half > div {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: stretch;
+}
+
+.form-row.split-half > div:first-child {
+  border-right: 1px solid var(--black);
+}
+
+.form-row.split-half label {
+  background: var(--grey-panel);
+  border-right: 1px solid var(--black);
+  justify-content: center;
+}
+
+.form-row.split-half input {
+  border: none;
+}
+
+/* Submit button */
+.form-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.form-actions button {
+  cursor: pointer;
+  font-family: var(--font-label);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 15px 36px;
+  border: 2.5px solid var(--black);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-actions .btn-submit {
+  background: var(--black);
+  color: var(--white);
+}
+
+.form-actions .btn-submit:hover {
+  background: var(--soft-black);
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 700px) {
+  .form-page {
+    padding: 32px 16px;
+  }
+
+  .form-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .form-header-text h1 {
+    font-size: 1.3rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row label {
+    border-right: none;
+    border-bottom: 1px solid var(--black);
+  }
+
+  .form-row .radio-group {
+    padding: 14px 16px;
+    gap: 24px;
+  }
+
+  .form-row.split-half {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row.split-half > div:first-child {
+    border-right: none;
+    border-bottom: 1px solid var(--black);
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ---------- PRINT ---------- */
+@media print {
+  header,
+  footer,
+  .form-actions {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+  }
+
+  .form-page {
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .form-header {
+    border-bottom: 2px solid black;
+  }
+
+  .form-title {
+    background: #ddd !important;
+    color: black !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .form-row label {
+    background: #f0f0f0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .form-row input,
+  .form-row select {
+    border: none !important;
+    box-shadow: none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+  <header>
+    <div class="wrap nav-row">
+      <div class="mark">
+        <img src="assets/logo.jpeg" alt="MUCM logo">
+        <span>MUCM</span>
+      </div>
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="manifesto.html">Manifesto</a>
+        <a href="membership.html">Membership</a>
+        <a href="governance.html">Governance</a>
+        <a href="constitution.html">Constitution</a>
+      </nav>
+
+      <!-- WhatsApp quick contact -->
+      <a href="https://wa.me/27729616361" target="_blank" rel="noopener" class="header-whatsapp" aria-label="Message MUCM on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>WhatsApp</span>
+      </a>
+
+      <a href="membership.html#involved" class="nav-cta">Join the Movement</a>
+      <button class="menu-btn" aria-label="Open menu"><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <div class="form-page">
+
+      <div class="form-header">
+        <img src="assets/logo.jpeg" alt="MUCM logo">
+        <div class="form-header-text">
+          <h1>Makana United Civic Movement</h1>
+          <p>Membership Registration</p>
+        </div>
+      </div>
+
+      <form action="https://formspree.io/f/xrpbegrb" method="POST">
+
+        <!-- Formspree config -->
+        <input type="hidden" name="_next" value="thank-you.html">
+        <input type="hidden" name="_subject" value="New MUCM Membership Registration">
+
+        <div class="form-title">Membership Registration Form</div>
+
+        <div class="form-row">
+          <label for="first-names">First Names</label>
+          <input type="text" id="first-names" name="first_names" required>
+        </div>
+
+        <div class="form-row">
+          <label for="surname">Surname</label>
+          <input type="text" id="surname" name="surname" required>
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-row">
+          <label for="id-number">ID Number</label>
+          <input type="text" id="id-number" name="id_number" required>
+        </div>
+
+        <div class="form-row">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+
+        <div class="form-row">
+          <label for="address">Street Number and Name</label>
+          <input type="text" id="address" name="address" required>
+        </div>
+
+        <div class="form-row">
+          <label for="ward">Ward Number</label>
+          <input type="text" id="ward" name="ward" required>
+        </div>
+
+        <div class="form-row">
+          <label for="voting-station">Voting Station</label>
+          <input type="text" id="voting-station" name="voting_station">
+        </div>
+
+        <div class="form-row">
+          <label>Have you voted before?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="voted_before" value="Yes" required> Yes</label>
+            <label><input type="radio" name="voted_before" value="No"> No</label>
+          </div>
+        </div>
+
+        <div class="form-row split-half">
+          <div>
+            <label for="signature">Signature</label>
+            <input type="text" id="signature" name="signature" placeholder="Type your name" required>
+          </div>
+          <div>
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" readonly required>
+          </div>
+        </div>
+
+        <div class="form-row" style="grid-template-columns: 1fr;">
+          <label
+            style="background:var(--white); border-right:none; padding:16px; align-items:flex-start; gap:12px; display:flex; font-weight:500; font-size:0.92rem; line-height:1.5;">
+            <input type="checkbox" name="consent" value="Agreed" required
+              style="margin-top:3px; width:auto; accent-color:var(--black);">
+            <span>I confirm that the information above is correct, and I consent to MUCM processing my personal
+              information for membership purposes in line with POPIA. I understand that typing my name above constitutes
+              my electronic signature. <a href="privacy.html" target="_blank">Read our Privacy Policy</a>.</span>
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-submit">
+            <i class="fas fa-paper-plane"></i> Submit Application
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </main>
+
+  <footer id="contact">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand-block">
+          <div class="footer-brand">
+            <img src="assets/logo.jpeg" alt="MUCM logo">
+            <span>MUCM</span>
+          </div>
+          <div class="footer-taglines">
+            <p class="footer-tagline-main">"Making Makana Great Again Through Unity, Integrity, and Service"</p>
+            <p class="footer-tagline-sub">Simunye — We Are One</p>
+          </div>
+          <div class="footer-translations">
+            <p><em>iNtshukumo yoluntu lwaseMakhanda</em></p>
+            <p><em>Makhanda Verenigde Burgerlike Beweging</em></p>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p><i class="fas fa-map-marker-alt" style="margin-right:8px;"></i>16 Bathurst Street / 67 African Street,
+            Makhanda</p>
+          <a href="mailto:mucm26@gmail.com"><i class="fas fa-envelope"
+              style="margin-right:8px;"></i>mucm26@gmail.com</a>
+          <a href="tel:+27729616361"><i class="fas fa-phone" style="margin-right:8px;"></i>+27 72 961 6361</a>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/profile.php?id=61592647917683" target="_blank" rel="noopener">
+              <i class="fa-brands fa-square-facebook"></i> Follow us on Facebook
+            </a>
+            <a href="https://www.tiktok.com/@mucm88" target="_blank" rel="noopener">
+              <i class="fa-brands fa-tiktok"></i> Follow us on TikTok
+            </a>
+            <a href="https://wa.me/27729616361" target="_blank" rel="noopener">
+              <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="manifesto.html">Manifesto</a>
+          <a href="membership.html">Membership</a>
+          <a href="governance.html">Governance</a>
+          <a href="constitution.html">Constitution</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Makana United Civic Movement</span>
+        <span>Business Reg No: 2026 / 173788 / 08</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu + date lock
+    document.addEventListener('DOMContentLoaded', function () {
+      // Mobile menu toggle
+      var menuBtn = document.querySelector('.menu-btn');
+      var navLinks = document.querySelector('nav.links');
+      if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          navLinks.classList.toggle('open');
+          menuBtn.classList.toggle('active');
+        });
+        navLinks.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            navLinks.classList.remove('open');
+            menuBtn.classList.remove('active');
+          });
+        });
+        document.addEventListener('click', function (e) {
+          if (!e.target.closest('header')) {
+            navLinks.classList.remove('open');
+            menuBtn.classList.remove('active');
+          }
+        });
+      }
+
+      // Set today's date by default and lock it
+      var dateInput = document.getElementById('date');
+      if (dateInput) {
+        var today = new Date();
+        var year = today.getFullYear();
+        var month = String(today.getMonth() + 1).padStart(2, '0');
+        var day = String(today.getDate()).padStart(2, '0');
+        dateInput.value = year + '-' + month + '-' + day;
+
+        // Prevent any keyboard/mouse changes
+        dateInput.addEventListener('keydown', function (e) { e.preventDefault(); });
+        dateInput.addEventListener('mousedown', function (e) { e.preventDefault(); });
+        dateInput.addEventListener('focus', function () { this.blur(); });
+      }
+    });
+  </script>
+
+</body>
+
+</html>
