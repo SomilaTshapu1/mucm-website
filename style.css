@@ -1557,7 +1557,7 @@ section.rule-top {
 } */
 /* ---------- HERO LOGO ---------- */
 .hero-logo {
-  width: 185px;
+  width: 240px;
   height: auto;
   object-fit: contain;
   display: block;
@@ -1576,7 +1576,7 @@ section.rule-top {
 } */
 @media (max-width: 700px) {
   .hero-logo {
-    width: 135px;
+    width: 180px;
     margin-bottom: 24px;
   }
 }
